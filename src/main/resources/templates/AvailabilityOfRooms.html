@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Room Availability and Booking</title>
+  <style>
+    .room-availability {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .room-availability h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .room-availability p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .room-availability ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .room-availability li {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .booking-form {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    
+    .booking-form h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .booking-form label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .booking-form input[type=text], .booking-form select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .booking-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .booking-form button:hover {
+      background-color: #45a049;
+    }
+    
+    .not-available-msg {
+      color: red;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="room-availability">
+    <h2>Room Availability</h2>
+    <p>We currently have the following rooms available:</p>
+    <ul id="room-list">
+      <li>Standard Room</li>
+      <li>Deluxe Room</li>
+      <li>Suite</li>
+    </ul>
+  </div>
+
+  <div class="booking-form">
+    <h2>Book a Room</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br>
+      <label for="room-type">Room Type:</label>
+      <select id="room-type" name="room-type">
+        <option value="standard-room">Standard Room</option>
+        <option value="deluxe-room">Deluxe Room</option>
+        <option value="suite">Suite</option>
+      </select><br>
+      <button type="button" id="book-now-btn">Book Now</button>
+    </form>
+  </div>
+  <script>
+    // Add event listener to the book now button
+    document.getElementById('book-now-btn').addEventListener('click', bookRoom);
+  
+    // Function to book a room
+    function bookRoom() {
+      var name = document.getElementById('name').value;
+      var roomType = document.getElementById('room-type').value;
+      var roomList = document.getElementById('room-list');
+      var roomAvailable = false;
+  
+      // Check if the selected room type is available
+      for (var i = 0; i < roomList.children.length; i++) {
+        if (roomType === roomList.children[i].textContent) {
+          roomAvailable = true;
+          roomList.appendChild(roomList.children[i])
+          break;
+        }
+      }
+  
+      // // If the selected room type is not available, show an error message
+      if (!roomAvailable) {
+        var notAvailableMsg = document.createElement('p');
+        notAvailableMsg.textContent = 'Sorry, the ' + roomType + ' is not available.';
+        notAvailableMsg.classList.add('not-available-msg');
+        document.querySelector('.booking-form').appendChild(notAvailableMsg);
+      } else {
+        // If the selected room type is available, book the room
+        alert('Thank you, ' + name + '! Your ' + roomType + ' has been booked.');
+       }
+    }
+  </script>
+   </body>
+  </html>

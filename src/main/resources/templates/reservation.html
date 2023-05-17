@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <link rel="stylesheet" href="css\reservationCss.css">
+</head>
+<body>
+    <img style="width:100% ;height: 300px;" src="https://cdn.vectorstock.com/i/1000x1000/26/13/royal-hotel-with-crown-icon-luxury-logo-vector-23602613.webp">
+    <br>
+    <br>
+    <h1 style="color:brown;text-align: center;font-size: 50px;">Make Reservation</h1>
+    <form>
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required><br>
+
+        <label for="checkin">Check-in date:</label>
+        <input type="date" id="checkin" name="checkin" required><br>
+      
+        <label for="checkout">Check-out date:</label>
+        <input type="date" id="checkout" name="checkout" required><br>
+      
+        <label for="adults">Number of adults:</label>
+        <input type="number" id="adults" name="adults" min="1" max="10" required><br>
+      
+        <label for="children">Number of children:</label>
+        <input type="number" id="children" name="children" min="0" max="10"><br>
+      
+        <label for="nights">Number of nights:</label>
+        <input type="number" id="nights" name="nights" min="1" max="14" required><br>
+      
+        <label for="status">Reservation status:</label>
+        <select id="status" name="status" required>
+          <option value="confirmed">Confirmed</option>
+          <option value="pending">Pending</option>
+          <option value="cancelled">Cancelled</option>
+        </select><br>
+      
+        <input type="submit" value="Make Reservation">
+      </form>
+      
+</body>
+</html>

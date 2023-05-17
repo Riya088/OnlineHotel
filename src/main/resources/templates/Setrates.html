@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="check-in">Check-in date:</label>
+        <input type="date" id="check-in" name="check-in"><br>
+      
+        <label for="check-out">Check-out date:</label>
+        <input type="date" id="check-out" name="check-out"><br>
+      
+        <label for="day">Day of the week:</label>
+        <select id="day" name="day">
+          <option value="Sunday">Sunday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+        </select><br>
+      
+        <label for="guests">Number of guests:</label>
+        <input type="number" id="guests" name="guests" min="1"><br>
+      
+        <label for="first-night-price">First night price:</label>
+        <input type="number" id="first-night-price" name="first-night-price"><br>
+      
+        <label for="extension-price">Extension price:</label>
+        <input type="number" id="extension-price" name="extension-price"><br>
+      
+        <input type="submit" value="Calculate">
+      </form>
+      <script>
+        const form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const checkIn = new Date(document.getElementById('check-in').value);
+  const checkOut = new Date(document.getElementById('check-out').value);
+  const day = document.getElementById('day').value;
+  const guests = parseInt(document.getElementById('guests').value);
+  const firstNightPrice = parseFloat(document.getElementById('first-night-price').value);
+  const extensionPrice = parseFloat(document.getElementById('extension-price').value);
+
+  const duration = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
+  const firstNight = firstNightPrice;
+  const extension = (duration - 1) * extensionPrice;
+  const total = firstNight + extension;
+
+  const result = `Total price for ${guests} guests staying from ${checkIn.toDateString()} to ${checkOut.toDateString()} (${duration} nights including ${day}) is ${total.toFixed(2)}.`;
+
+  const output = document.createElement('p');
+  output.textContent = result;
+  document.body.appendChild(output);
+});
+
+        </script>
+</body>
+</html>

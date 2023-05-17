@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Staff Member</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-image: url(staff1a\ \(2\).jpg);
+            background-repeat: no-repeat; 
+            background-size: cover;    
+        }
+		h1 {
+            text-decoration: underline;
+            text-shadow: #16b154;
+			text-align: center;
+          
+		}
+		form {
+			margin:  0px auto;
+			width: 60%;
+			padding-left: 50px;
+            margin-top: 80px;
+			margin-bottom: 100px;
+			background-color:transparent;
+            background-image: url(staff3a.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+			border-radius: 10px;
+			padding-top: 0px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			padding-bottom: 0px;
+		}
+		label {
+			display: block;
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
+		input[type="text"], input[type="email"], input[type="number"] {
+			width: 50%;
+			padding: 8px;
+			border: 1px solid #2e2032;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Add Staff Member</h1>
+	<form method="post" action="add_staff_member.php">
+        <br>
+		<label for="code">Code:</label>
+		<input type="text" name="code" required>
+		<label for="name">Employee Name:</label>
+		<input type="text" name="name" required>
+		<label for="address">Employee Address:</label>
+		<input type="text" name="address" required>
+		<label for="nic">NIC:</label>
+		<input type="text" name="nic" required>
+		<label for="salary">Salary:</label>
+		<input type="number" name="salary" required>
+		<label for="age">Age:</label>
+		<input type="number" name="age" required>
+		<label for="occupation">Occupation:</label>
+		<input type="text" name="occupation" required>
+		<label for="email">E-mail:</label>
+		<input type="email" name="email" required> <br>
+		<input type="submit" value="Add Staff Member">
+        <br>
+        <br>
+	</form>
+</body>
+</html>
